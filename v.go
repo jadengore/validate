@@ -59,6 +59,11 @@ func (b BadField) Error() string {
 	return fmt.Sprintf("field %s is invalid: %v", b.Field, b.Err)
 }
 
+// ErrorOnly returns only the error message of the validation, not the field.
+func (b BadField) ErrorOnly() string {
+	return fmt.Sprintf("%v", b.Err)
+}
+
 // Validate accepts a struct (or a pointer) and returns a list of errors for all
 // fields that are invalid. If all fields are valid, or s is not a struct type,
 // Validate returns nil.
